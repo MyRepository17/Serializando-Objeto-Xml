@@ -14,13 +14,17 @@ namespace Serializacion
         public long nitEmisor;
         public string razonSocialEmisor;
         public string municipio;
-        public string telefono;
+        [XmlElement(IsNullable = true)]
+        public string? telefono;
+        [XmlElement(IsNullable = true)]
+        public string? nitConjunto;
         public long numeroFactura;
         public string cuf;
         public string cufd;
         public int codigoSucursal;
         public string direccion;
-        public int codigoPuntoVenta;
+        [XmlElement(IsNullable = true)]
+        public int? codigoPuntoVenta;
         public DateTime fechaEmision;
         public string nombreRazonSocial;
         public int codigoTipoDocumentoIdentidad;
@@ -29,17 +33,21 @@ namespace Serializacion
         public string? complemento;
         public string codigoCliente;
         public int codigoMetodoPago;
-        //public int numeroTarjeta;
+        [XmlElement(IsNullable = true)]
+        public int? numeroTarjeta;
         public float montoTotal;
         public float montoTotalSujetoIva;
-        //public float montoGiftCard;
-        //public float descuentoAdicional;
-        public int codigoExcepcion;
+        public int codigoModeda;
+        public int tipoCambio;
+        public int montoTotalMoneda;
+        [XmlElement(IsNullable = true)]
+        public float? montoGiftCard;
+        [XmlElement(IsNullable = true)]
+        public float? descuentoAdicional;
+        [XmlElement(IsNullable = true)]
+        public int? codigoExcepcion;
         [XmlElement(IsNullable = true)]
         public string? cafc;
-        public int codigoModeda;
-        public float tipoCambio;
-        public float montoTotalMoneda;
         public string leyenda;
         public string usuario;
         public int codigoDocumentoSector;

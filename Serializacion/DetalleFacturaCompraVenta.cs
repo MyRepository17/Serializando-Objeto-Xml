@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Serializacion
 {
@@ -16,9 +18,12 @@ namespace Serializacion
         public int cantidad;
         public int unidadMedida;
         public float precioUnitario;
-        public float montoDescuento;
+        [XmlElement(IsNullable = true)]
+        public float? montoDescuento;
         public float subTotal;
-        //public string numeroSerie;
-        //public string numeroImei;
+        [XmlElement(IsNullable = true)]
+        public string? numeroSerie;
+        [XmlElement(IsNullable = true)]
+        public string? numeroImei;
     }
 }

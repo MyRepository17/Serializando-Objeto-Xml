@@ -20,7 +20,9 @@ namespace Serializacion
         [XmlElement(IsNullable = true)]
         public float? montoDescuento;
         public float subTotal;
-        //public string numeroSerie;
-        //public string numeroImei;
+        [XmlElement(IsNullable = true)]
+        public string? numeroSerie;
+        [XmlElement(IsNullable = true)]
+        public string? numeroImei;
     }
 }
