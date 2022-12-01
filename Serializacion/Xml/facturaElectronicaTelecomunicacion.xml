@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Objeto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TaxRate>
+    <nitEmisor>10503823</nitEmisor>
+    <razonSocialEmisor>leonardo</razonSocialEmisor>
+  </TaxRate>
+  <detalle>
+    <actividadEconomica>1</actividadEconomica>
+    <codigoProductoSin>21231</codigoProductoSin>
+  </detalle>
+</Objeto>
