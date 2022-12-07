@@ -9,7 +9,6 @@ using System.Xml.Serialization;
 
 internal class Program
 {
-   
     private static void Main(string[] args)
     {
         Program program = new Program();
@@ -19,8 +18,6 @@ internal class Program
         program.GenerarFacturaCompraVentaXml(program.LlenarFacturaCompraVenta());
 
     }
-
-
     //serialización del objeto enviado
     public void SerializarObjeto(Object objet)
     {
@@ -31,8 +28,6 @@ internal class Program
         Console.WriteLine();
         Console.ReadLine();
     }
-
-
     //llenado de datos ficticios en las facturas de telecom y com-ven
     public FacturaTelecomunicaciones LlenarFacturaTelecomunicaciones()
     {
@@ -236,7 +231,5 @@ internal class Program
         obj.detalle = program.LlenarDetalleFacturaCompraVentaXml(factura);
         program.SerializarObjeto(obj);
     }
-
-   
 }
 
