@@ -12,16 +12,19 @@ internal class Program
    
     private static void Main(string[] args)
     {
-        Program program= new Program();
+        Program program = new Program();
         program.GenerarFacturaTelecomunicacionesXml(program.LlenarFacturaTelecomunicaciones());
         Console.WriteLine();
         Console.ReadLine();
         program.GenerarFacturaCompraVentaXml(program.LlenarFacturaCompraVenta());
+
     }
+
+
     //serialización del objeto enviado
     public void SerializarObjeto(Object objet)
     {
-        System.Xml.Serialization.XmlSerializer x = new System.Xml.Serialization.XmlSerializer(objet.GetType());
+        XmlSerializer x = new XmlSerializer(objet.GetType());
         //FileStream fileStream = File.Open("../../../facturaElectronicaTelecomunicacion.xml", FileMode.Create,FileAccess.Write);
         //x.Serialize(fileStream,objet);
         x.Serialize(Console.Out, objet);
@@ -233,5 +236,7 @@ internal class Program
         obj.detalle = program.LlenarDetalleFacturaCompraVentaXml(factura);
         program.SerializarObjeto(obj);
     }
+
+   
 }
 

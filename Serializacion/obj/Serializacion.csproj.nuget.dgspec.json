@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\leona\\Source\\Repos\\MyRepository17\\Serializando-Objeto-Xml\\Serializacion\\Serializacion.csproj": {}
+    "C:\\Users\\leona\\source\\repos\\MyRepository17\\Serializacion\\Serializacion.csproj": {}
   },
   "projects": {
-    "C:\\Users\\leona\\Source\\Repos\\MyRepository17\\Serializando-Objeto-Xml\\Serializacion\\Serializacion.csproj": {
+    "C:\\Users\\leona\\source\\repos\\MyRepository17\\Serializacion\\Serializacion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\leona\\Source\\Repos\\MyRepository17\\Serializando-Objeto-Xml\\Serializacion\\Serializacion.csproj",
+        "projectUniqueName": "C:\\Users\\leona\\source\\repos\\MyRepository17\\Serializacion\\Serializacion.csproj",
         "projectName": "Serializacion",
-        "projectPath": "C:\\Users\\leona\\Source\\Repos\\MyRepository17\\Serializando-Objeto-Xml\\Serializacion\\Serializacion.csproj",
+        "projectPath": "C:\\Users\\leona\\source\\repos\\MyRepository17\\Serializacion\\Serializacion.csproj",
         "packagesPath": "C:\\Users\\leona\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\leona\\Source\\Repos\\MyRepository17\\Serializando-Objeto-Xml\\Serializacion\\obj\\",
+        "outputPath": "C:\\Users\\leona\\source\\repos\\MyRepository17\\Serializacion\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
