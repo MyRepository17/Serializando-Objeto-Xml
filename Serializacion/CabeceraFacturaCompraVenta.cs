@@ -49,5 +49,6 @@ namespace Serializacion
         public string leyenda;
         public string usuario;
         public int codigoDocumentoSector;
+        public virtual ICollection<DetalleFacturaCompraVenta> detalles { get; } = new List<DetalleFacturaCompraVenta>();
     }
 }

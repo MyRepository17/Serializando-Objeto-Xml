@@ -12,6 +12,9 @@ namespace Serializacion
     public class FacturaCompraVentaXml
     {
         public CabeceraFacturaCompraVenta cabecera;
-        public DetalleFacturaCompraVenta detalle;
+
+        //public DetalleFacturaCompraVenta detalle;
+
+        public virtual ICollection<DetalleFacturaCompraVenta> detalle { get; set; } = new List<DetalleFacturaCompraVenta>();
     }
 }
