@@ -10,36 +10,25 @@ using System.Xml.Serialization;
 
 internal class Program
 {
-   
     private static void Main(string[] args)
     {
-        Program program= new Program();
-        //program.GenerarFacturaTelecomunicacionesXml(program.LlenarFacturaTelecomunicaciones());
-        //Console.WriteLine();
-        //Console.ReadLine();
+        Program program = new Program();
+        program.GenerarFacturaTelecomunicacionesXml(program.LlenarFacturaTelecomunicaciones());
+        Console.WriteLine();
+        Console.ReadLine();
+        program.GenerarFacturaCompraVentaXml(program.LlenarFacturaCompraVenta());
 
-        //Por revisar
-        //program.GenerarFacturaCompraVentaXml(program.LlenarFacturaCompraVenta());
-        //
-        //for (int i=0; i<= program.LlenarFacturaCompraVenta().detalles.Count; i++)
-        //{
-        //    Console.WriteLine(program.LlenarFacturaCompraVenta().detalles();
-        //}
-        
-     
     }
     //serialización del objeto enviado
     public void SerializarObjeto(Object objet)
     {
         XmlSerializer x = new XmlSerializer(objet.GetType());
-        FileStream fileStream = File.Open("../../../facturaElectronicaCompraVenta.xml", FileMode.Create, FileAccess.Write);
-        x.Serialize(fileStream, objet);
-        //x.Serialize(Console.Out, objet);
-        //Console.WriteLine();
-        //Console.ReadLine();
+        //FileStream fileStream = File.Open("../../../facturaElectronicaTelecomunicacion.xml", FileMode.Create,FileAccess.Write);
+        //x.Serialize(fileStream,objet);
+        x.Serialize(Console.Out, objet);
+        Console.WriteLine();
+        Console.ReadLine();
     }
-
-
     //llenado de datos ficticios en las facturas de telecom y com-ven
     public FacturaTelecomunicaciones LlenarFacturaTelecomunicaciones()
     {

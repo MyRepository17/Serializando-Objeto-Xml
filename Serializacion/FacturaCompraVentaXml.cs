@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 using System.Xml.Serialization;
 
 namespace Serializacion
@@ -11,6 +12,8 @@ namespace Serializacion
     [XmlType("NewTypeName")]
     public class FacturaCompraVentaXml
     {
+        [XmlAttribute("noNamespaceSchemaLocation", Namespace = XmlSchema.InstanceNamespace)]
+        public string attr = "facturaElectronicaCompraVenta.xsd";
         public CabeceraFacturaCompraVenta cabecera;
 
         //public DetalleFacturaCompraVenta detalle;
