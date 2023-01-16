@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "woselA154hHD9AV4cp2aajrr7DtkuGDM/57h6YoTJRBGpHl+5fof7cK5FrWI/ejD8VV46um8cgU042IvT7IeUg==",
+  "dgSpecHash": "pVWJQ5f9/aP46+LXC+uYrpEskYPIbbCgn6j9CmFYE77vQ1DksobLtC1ttzPMUb9mKb9+lKjcRdjyqah9v1UVdA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\USUARIO\\source\\repos\\MyRepository17\\Serializando-Objeto-Xml\\Serializacion\\Serializacion.csproj",
+  "projectFilePath": "C:\\Users\\leona\\source\\repos\\MyRepository17\\Serializacion\\Serializacion.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
