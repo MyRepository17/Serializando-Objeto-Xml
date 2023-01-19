@@ -8,8 +8,10 @@ using System.Xml.Serialization;
 
 namespace Serializacion
 {
-    public  class DetalleFacturaCompraVenta
+    [Serializable]
+    public class DetalleFacturaCompraVenta
     {
+        public DetalleFacturaCompraVenta() { }
         //DETALLE
         public string actividadEconomica;
         public int codigoProductoSin;
@@ -25,6 +27,7 @@ namespace Serializacion
         public string? numeroSerie;
         [XmlElement(IsNullable = true)]
         public string? numeroImei;
-        public virtual CabeceraFacturaCompraVenta factura { get; set; } = null!;
+        //[XmlElement(IsNullable = true)]
+        //public virtual CabeceraFacturaCompraVenta factura { get; set; } = null!;
     }
 }

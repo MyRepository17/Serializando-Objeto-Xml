@@ -8,8 +8,10 @@ using System.Xml.Serialization;
 
 namespace Serializacion
 {
+    [Serializable]
     public  class CabeceraFacturaCompraVenta
     {
+        public CabeceraFacturaCompraVenta() { }
         public long nitEmisor;
         public string razonSocialEmisor;
         public string municipio;
@@ -49,6 +51,6 @@ namespace Serializacion
         public string leyenda;
         public string usuario;
         public int codigoDocumentoSector;
-        public virtual ICollection<DetalleFacturaCompraVenta> detalles { get; } = new List<DetalleFacturaCompraVenta>();
+        //public virtual List<DetalleFacturaCompraVenta> detalles { get; set; } = new List<DetalleFacturaCompraVenta>();
     }
 }

@@ -39,6 +39,6 @@ namespace Serializacion
         public string usuario;
         public int codigoDocumentoSector;
         //DETALLE
-        public virtual ICollection<FacturaDetalleGral> detalles { get; set; } = new List<FacturaDetalleGral>();
+        public List<FacturaDetalleGral> detalles { get; set; } = new List<FacturaDetalleGral>();
     }
 }

@@ -2,6 +2,7 @@
 using Serializacion;
 using System;
 using System.ComponentModel;
+using System.Data.SqlTypes;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Xml;
@@ -12,21 +13,70 @@ internal class Program
 {
     private static void Main(string[] args)
     {
+
         Program program = new Program();
-        program.GenerarFacturaTelecomunicacionesXml(program.LlenarFacturaTelecomunicaciones());
-        Console.WriteLine();
-        Console.ReadLine();
+        //program.GenerarFacturaTelecomunicacionesXml(program.LlenarFacturaTelecomunicaciones());
+        //Console.WriteLine();
+        //Console.ReadLine();
         program.GenerarFacturaCompraVentaXml(program.LlenarFacturaCompraVenta());
 
     }
     //serialización del objeto enviado
-    public void SerializarObjeto(Object objet)
+    public void SerializarObjetoCompraVenta(FacturaCompraVentaXml objet, List<DetalleFacturaCompraVenta>detalles)
     {
+        //
+        XNamespace xsi = "http://www.w3.org/2001/XMLSchema-instance";
         XmlSerializer x = new XmlSerializer(objet.GetType());
+        FileStream fileStream = File.Open("../../../facturaElectronicaCompraVenta.xml", FileMode.Create, FileAccess.Write);
+        x.Serialize(fileStream, objet);
+        fileStream.Close();
+        XElement newDocXML = XElement.Load("../../../facturaElectronicaCompraVenta.xml");
+        //newDocXML.Add(new XElement("Element1", 1));
+        //newDocXML.Save("../../../facturaElectronicaCompraVenta.xml");
+        foreach (var item in detalles)
+        {
+            
+            XElement newTiempo = new XElement("detalle",
+            new XElement("actividadEconomica", item.actividadEconomica),
+            new XElement("codigoProductoSin", item.codigoProductoSin),
+            new XElement("codigoProducto", item.codigoProducto),
+            new XElement("descripcion", item.descripcion),
+            new XElement("cantidad", item.cantidad),
+            new XElement("unidadMedida", item.unidadMedida),
+            new XElement("precioUnitario",item.precioUnitario),
+            new XElement("montoDescuento", item.montoDescuento, new XAttribute(xsi + "nil", true)),
+            new XElement("subTotal", item.subTotal),
+            new XElement("numeroSerie", new XAttribute(xsi + "nil", true)),
+            new XElement("numeroImei", new XAttribute(xsi + "nil", true)));
+            newDocXML.Add(newTiempo);
+        }
+         
+    Console.WriteLine(newDocXML);
+        //
+
+
+        //XmlSerializer x = new XmlSerializer(objet.GetType());
         //FileStream fileStream = File.Open("../../../facturaElectronicaTelecomunicacion.xml", FileMode.Create,FileAccess.Write);
         //x.Serialize(fileStream,objet);
+        //x.Serialize(Console.Out, objet);
+        //Console.WriteLine();
+        Console.ReadLine();
+    }
+    public void SerializarObjetoTelecomunicaciones(Object objet)
+    {
+        //
+        XmlSerializer x = new XmlSerializer(typeof(FacturaCompraVentaXml), new Type[] { typeof(CabeceraFacturaCompraVenta), typeof(DetalleFacturaCompraVenta) });
         x.Serialize(Console.Out, objet);
         Console.WriteLine();
+        //
+
+
+
+        //XmlSerializer x = new XmlSerializer(objet.GetType());
+        //FileStream fileStream = File.Open("../../../facturaElectronicaTelecomunicacion.xml", FileMode.Create,FileAccess.Write);
+        //x.Serialize(fileStream,objet);
+        //x.Serialize(Console.Out, objet);
+        //Console.WriteLine();
         Console.ReadLine();
     }
     //llenado de datos ficticios en las facturas de telecom y com-ven
@@ -163,9 +213,9 @@ internal class Program
         cabecera.codigoDocumentoSector = factura.codigoDocumentoSector;
         return cabecera;
     }
-    public ICollection<DetalleFacturaCompraVenta> LlenarDetalleFacturaCompraVentaXml(ICollection<FacturaDetalleGral> detalles)
+    public List<DetalleFacturaCompraVenta> LlenarDetalleFacturaCompraVenta(List<FacturaDetalleGral> detalles)
     {
-        ICollection<DetalleFacturaCompraVenta> listaDetalles = new List<DetalleFacturaCompraVenta>();
+        List<DetalleFacturaCompraVenta> listaDetalles = new List<DetalleFacturaCompraVenta>();
         foreach (var item in detalles)
         {
             DetalleFacturaCompraVenta detalle = new DetalleFacturaCompraVenta();
@@ -180,6 +230,7 @@ internal class Program
             detalle.subTotal = item.subTotal;
             detalle.numeroSerie = null;
             detalle.numeroImei = null;
+            listaDetalles.Add(detalle);
         }
         
         return listaDetalles;
@@ -187,7 +238,7 @@ internal class Program
     public FacturaCompraVenta LlenarFacturaCompraVenta()
     {
         //lista de detalles factura
-        ICollection<FacturaDetalleGral> listaDetalles= new List<FacturaDetalleGral>();
+        List<FacturaDetalleGral> listaDetalles= new List<FacturaDetalleGral>();
         FacturaDetalleGral facturaDetalleGral= new FacturaDetalleGral();
         facturaDetalleGral.actividadEconomica = "451010";
         facturaDetalleGral.codigoProductoSin = 49111;
@@ -196,20 +247,21 @@ internal class Program
         facturaDetalleGral.cantidad = 1;
         facturaDetalleGral.unidadMedida = 1;
         facturaDetalleGral.precioUnitario = 100;
-        facturaDetalleGral.montoDescuento = 0;
+        facturaDetalleGral.montoDescuento = null;
         facturaDetalleGral.subTotal = 100;
         listaDetalles.Add(facturaDetalleGral);
         //
-        facturaDetalleGral.actividadEconomica = "12345";
-        facturaDetalleGral.codigoProductoSin = 49856;
-        facturaDetalleGral.codigoProducto = "JN-131313";
-        facturaDetalleGral.descripcion = "JUGO DE NARANJA EN CAJA";
-        facturaDetalleGral.cantidad = 1;
-        facturaDetalleGral.unidadMedida = 1;
-        facturaDetalleGral.precioUnitario = 100;
-        facturaDetalleGral.montoDescuento = 0;
-        facturaDetalleGral.subTotal = 100;
-        listaDetalles.Add(facturaDetalleGral);
+        FacturaDetalleGral facturaDetalleGral1 = new FacturaDetalleGral();
+        facturaDetalleGral1.actividadEconomica = "12345";
+        facturaDetalleGral1.codigoProductoSin = 49856;
+        facturaDetalleGral1.codigoProducto = "JN-131313";
+        facturaDetalleGral1.descripcion = "JUGO DE NARANJA EN CAJA";
+        facturaDetalleGral1.cantidad = 1;
+        facturaDetalleGral1.unidadMedida = 1;
+        facturaDetalleGral1.precioUnitario = 100;
+        facturaDetalleGral1.montoDescuento = 20;
+        facturaDetalleGral1.subTotal = 100;
+        listaDetalles.Add(facturaDetalleGral1);
         //
 
         FacturaCompraVenta obj = new FacturaCompraVenta();
@@ -249,15 +301,16 @@ internal class Program
         FacturaTelecomunicacionesXml obj=new FacturaTelecomunicacionesXml();
         obj.cabecera= program.LlenarCabeceraFacturaTelecomunicacionesXml(factura);
         obj.detalle= program.LlenarDetalleFacturaTelecomunicacionesXml(factura);
-        program.SerializarObjeto(obj);
+        program.SerializarObjetoTelecomunicaciones(obj);
     }
     public void GenerarFacturaCompraVentaXml(FacturaCompraVenta factura)
     {
         Program program = new Program();
         FacturaCompraVentaXml obj = new FacturaCompraVentaXml();
+        List<DetalleFacturaCompraVenta> detalles = new List<DetalleFacturaCompraVenta>();
         obj.cabecera = program.LlenarCabeceraFacturaCompraVentaXml(factura);
-        obj.detalle = program.LlenarDetalleFacturaCompraVentaXml(factura.detalles);
-        program.SerializarObjeto(obj);
+        detalles = program.LlenarDetalleFacturaCompraVenta(factura.detalles);
+        program.SerializarObjetoCompraVenta(obj,detalles);
     }
 }
 
