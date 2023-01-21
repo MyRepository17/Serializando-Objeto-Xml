@@ -8,7 +8,6 @@ using System.Xml.Serialization;
 
 namespace Serializacion
 {
-    //[XmlRoot(IsNullable = false)]
     public  class CabeceraFacturaTelecomunicaciones
     {
         public long nitEmisor;

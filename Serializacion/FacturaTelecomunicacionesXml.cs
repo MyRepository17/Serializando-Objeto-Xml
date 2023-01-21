@@ -18,6 +18,6 @@ namespace Serializacion
         [XmlAttribute("noNamespaceSchemaLocation", Namespace = XmlSchema.InstanceNamespace)]
         public string attr = "facturaElectronicaTelecomunicacion.xsd";
         public CabeceraFacturaTelecomunicaciones cabecera;
-        public DetalleFacturaTelecomunicaciones detalle;
+        //public DetalleFacturaTelecomunicaciones detalle;
     }
 }

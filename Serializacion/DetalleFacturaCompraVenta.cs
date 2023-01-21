@@ -12,7 +12,6 @@ namespace Serializacion
     public class DetalleFacturaCompraVenta
     {
         public DetalleFacturaCompraVenta() { }
-        //DETALLE
         public string actividadEconomica;
         public int codigoProductoSin;
         public string codigoProducto;
@@ -27,7 +26,6 @@ namespace Serializacion
         public string? numeroSerie;
         [XmlElement(IsNullable = true)]
         public string? numeroImei;
-        //[XmlElement(IsNullable = true)]
         //public virtual CabeceraFacturaCompraVenta factura { get; set; } = null!;
     }
 }

@@ -40,17 +40,6 @@ namespace Serializacion
         public string leyenda;
         public string usuario;
         public int codigoDocumentoSector;
-        //DETALLE
-        public string actividadEconomica;
-        public int codigoProductoSin;
-        public string codigoProducto;
-        public string descripcion;
-        public int cantidad;
-        public int unidadMedida;
-        public float precioUnitario;
-        public float? montoDescuento;
-        public float subTotal;
-        //public string numeroSerie;
-        //public string numeroImei;
+        public List<FacturaDetalleGral> detalles { get; set; } = new List<FacturaDetalleGral>();
     }
 }

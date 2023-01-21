@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <facturaElectronicaCompraVenta xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:noNamespaceSchemaLocation="facturaElectronicaCompraVenta.xsd">
   <cabecera>
     <nitEmisor>1003579028</nitEmisor>
@@ -32,4 +32,30 @@
     <usuario>pperez</usuario>
     <codigoDocumentoSector>22</codigoDocumentoSector>
   </cabecera>
+  <detalle>
+    <actividadEconomica>451010</actividadEconomica>
+    <codigoProductoSin>49111</codigoProductoSin>
+    <codigoProducto>JN-131231</codigoProducto>
+    <descripcion>JUGO DE NARANJA EN VASO</descripcion>
+    <cantidad>1</cantidad>
+    <unidadMedida>1</unidadMedida>
+    <precioUnitario>100</precioUnitario>
+    <montoDescuento>0</montoDescuento>
+    <subTotal>100</subTotal>
+    <numeroSerie xsi:nil="true" />
+    <numeroImei xsi:nil="true" />
+  </detalle>
+  <detalle>
+    <actividadEconomica>12345</actividadEconomica>
+    <codigoProductoSin>49856</codigoProductoSin>
+    <codigoProducto>JN-131313</codigoProducto>
+    <descripcion>JUGO DE NARANJA EN CAJA</descripcion>
+    <cantidad>1</cantidad>
+    <unidadMedida>1</unidadMedida>
+    <precioUnitario>100</precioUnitario>
+    <montoDescuento>20</montoDescuento>
+    <subTotal>100</subTotal>
+    <numeroSerie xsi:nil="true" />
+    <numeroImei xsi:nil="true" />
+  </detalle>
 </facturaElectronicaCompraVenta>
